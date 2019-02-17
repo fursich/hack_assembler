@@ -3,6 +3,7 @@
 # assembler = Assembler::Driver.new('add/Add.asm')
 # assembler.run
 
+require 'forwardable'
 require_relative 'parser/strategy.rb'
 
 require_relative 'utils/fileio.rb'
