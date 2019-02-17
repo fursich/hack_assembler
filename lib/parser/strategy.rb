@@ -42,7 +42,7 @@ module ParseTree
       end
   
       def c_command?
-        !(a_command? || l_command?)
+        CCommandParser.has_type?(@text)
       end
     end
   end

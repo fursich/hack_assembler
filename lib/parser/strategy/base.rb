@@ -26,10 +26,12 @@ module ParseTree
       C_COMMAND_OPERATORS = /#{C_COMMAND_SUBST}|#{C_COMMAND_PLUS}|#{C_COMMAND_MINUS}|#{C_COMMAND_NOT}|#{C_COMMAND_AND}|#{C_COMMAND_OR}/
 
       BLANK_FILLER     = /[[:space:]]+/
+      SINGLE_LINE      = /[[:^cntrl:]]+/
 
       NULL_TYPE        = /\A[[:space:]]*(\/\/.*)?\z/
-      A_COMMAND_TYPE   = /\A@.*\z/
-      L_COMMAND_TYPE   = /\A\(.*\)\z/
+      A_COMMAND_TYPE   = /\A@#{SINGLE_LINE}\z/
+      L_COMMAND_TYPE   = /\A\(#{SINGLE_LINE}\)\z/
+      C_COMMAND_TYPE   = /\A(#{SINGLE_LINE})\z/
 
       A_COMMAND_TOKENIZER = /#{A_COMMAND}|#{LABEL}|#{NUMBER}|#{BLANK_FILLER}|./
       L_COMMAND_TOKENIZER = /#{L_COMMAND_START}|#{L_COMMAND_END}|#{LABEL}|#{NUMBER}|#{BLANK_FILLER}|./

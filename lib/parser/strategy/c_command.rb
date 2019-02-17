@@ -55,6 +55,10 @@ module ParseTree
         @last_symbol = symbol
       end
 
+      def self.has_type?(text)
+        text =~ C_COMMAND_TYPE
+      end
+
       private
 
       def tokenizer
